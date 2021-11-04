@@ -1,4 +1,6 @@
 # coding: utf-8
+import json
+
 from src.train_and_evaluate import *
 from src.models import *
 import time
@@ -14,8 +16,8 @@ weight_decay = 1e-5
 beam_size = 5
 n_layers = 2
 
-data = load_raw_data("data/Math_23K.json")
-
+#data = load_raw_data("data/Math_23K.json")
+data = json.load(open('data/train.json', 'r'))
 pairs, generate_nums, copy_nums = transfer_num(data)
 
 temp_pairs = []
